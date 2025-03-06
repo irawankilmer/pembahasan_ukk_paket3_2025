@@ -27,7 +27,7 @@ Setelah mengikuti pembelajaran ini, siswa diharapkan mampu:
 
 | **No** | **Materi**                                            | **Sub-Materi**                                                                                                                                                                                 | **Durasi** |
 | ------ | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **1**  | **Analisis Kebutuhan Basis Data**                     | - Identifikasi data transaksi, pelanggan, dan stok produk- Penentuan jenis data dan formatnya- Analisis kebutuhan user                                                                         | 45 menit   |
+| **1**  | [**Analisis Kebutuhan Basis Data**](./1/README.MD)                     | - Identifikasi data transaksi, pelanggan, dan stok produk- Penentuan jenis data dan formatnya- Analisis kebutuhan user                                                                         | 45 menit   |
 | **2**  | **Perancangan Skema Basis Data**                      | - Pembuatan Entity Relationship Diagram (ERD)- Menentukan entitas, atribut, dan relasi- Menentukan Primary Key (PK) dan Foreign Key (FK)                                                       | 60 menit   |
 | **3**  | **Pembuatan dan Implementasi Basis Data**             | - Pengenalan SQL dan struktur tabel- Perintah **CREATE TABLE, ALTER TABLE**- Menentukan tipe data yang tepat                                                                                   | 60 menit   |
 | **4**  | **Pengisian dan Pengelolaan Data**                    | - Perintah **INSERT INTO** untuk memasukkan data- Perintah **UPDATE** untuk mengubah data- Perintah **DELETE** untuk menghapus data                                                            | 45 menit   |
@@ -79,6 +79,7 @@ Silabus ini dibuat sebagai panduan untuk menyelesaikan **Uji Kompetensi Keahlian
 
 Selamat Menjalankan Uji Kompetensi Keahlian 
 
+---
 
 #### TTD
 
