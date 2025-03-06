@@ -80,8 +80,7 @@ Silabus ini dibuat sebagai panduan untuk menyelesaikan **Uji Kompetensi Keahlian
 Selamat Menjalankan Uji Kompetensi Keahlian 
 
 ---
+### **Navigasi**
+Next ⏭ [Materi 1: Analisis Kebutuhan Basis Data](./1/README.MD)
 
-#### TTD
-
-
-#### Irawan
+**Note:** Jika ada yang perlu ditanyakan, silahkan hubungi saya di no WA yang ujungnya 9200 atau 4606

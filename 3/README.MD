@@ -149,3 +149,10 @@ TRUNCATE TABLE siswa;
 
 Semoga materi ini mudah dipahami! Kalau ada pertanyaan, silahkan langsung di gaskeun! 😊🚀
 
+---
+### **Navigasi**
+Prev ⏮ [Materi 2: Perancangan Skema Basis Data](../2/README.MD) <br>
+Home 🏠 [Halaman Utama](../README.MD) <br>
+Next ⏭ [Materi 4: Pengisian dan Pengelolaan Data](../4/README.MD)
+
+**Note:** Jika ada yang perlu ditanyakan, silahkan hubungi saya di no WA yang ujungnya 9200 atau 4606

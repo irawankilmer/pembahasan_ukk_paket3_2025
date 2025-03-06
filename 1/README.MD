@@ -152,5 +152,9 @@ Dalam soal UKK ini, **Analisis Kebutuhan Basis Data** berarti Kalian harus:
 Setelah tahap ini selesai, Kalian akan lanjut ke **Perancangan Skema Basis Data (ERD)** di materi berikutnya. 🚀
 
 
---- 
+---
+### **Navigasi**
+Home 🏠 [Halaman Utama](../README.MD) <br>
+Next ⏭ [Materi 2: Perancangan Skema Basis Data](../2/README.MD)
+
 **Note:** Jika ada yang perlu ditanyakan, silahkan hubungi saya di no WA yang ujungnya 9200 atau 4606
