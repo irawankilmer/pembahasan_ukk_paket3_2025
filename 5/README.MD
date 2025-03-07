@@ -141,7 +141,6 @@ JOIN siswa B ON A.kelas = B.kelas AND A.id_siswa != B.id_siswa;
 - **INNER JOIN** = Cari teman yang sama-sama suka sepak bola ⚽
 - **LEFT JOIN** = Semua temanmu, walaupun ada yang tidak suka sepak bola 🏆
 - **RIGHT JOIN** = Semua fans sepak bola, meskipun bukan temanmu 🏅
-- **FULL JOIN** = Semua orang, baik yang suka atau tidak 🎭
 
 Semoga mudah dipahami! Kalau ada pertanyaan, tanya saja! 😊🚀
 
