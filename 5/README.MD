@@ -15,7 +15,6 @@ Bayangkan kita punya dua lemari arsip: satu berisi data siswa, satu lagi berisi 
 | **INNER JOIN** | Mengambil data yang cocok di kedua tabel |
 | **LEFT JOIN** | Mengambil semua data dari tabel kiri + yang cocok di tabel kanan |
 | **RIGHT JOIN** | Mengambil semua data dari tabel kanan + yang cocok di tabel kiri |
-| **FULL JOIN** | Mengambil semua data dari kedua tabel, baik yang cocok maupun tidak |
 | **CROSS JOIN** | Menghasilkan semua kombinasi data dari kedua tabel |
 | **SELF JOIN** | Menghubungkan tabel dengan dirinya sendiri |
 
@@ -97,30 +96,9 @@ RIGHT JOIN nilai ON siswa.id_siswa = nilai.id_siswa;
 
 ---
 
-## **5️⃣ FULL JOIN – Mengambil Semua Data dari Kedua Tabel**
-
-FULL JOIN mengambil **semua data dari kedua tabel**, baik yang cocok maupun tidak.
-
-📌 **Query FULL JOIN (Jika Didukung oleh SQL)**
-```sql
-SELECT siswa.nama, siswa.kelas, nilai.mata_pelajaran, nilai.nilai
-FROM siswa
-FULL JOIN nilai ON siswa.id_siswa = nilai.id_siswa;
-```
-📌 **Jika SQL tidak mendukung FULL JOIN, bisa gunakan UNION:**
-```sql
-SELECT siswa.nama, siswa.kelas, nilai.mata_pelajaran, nilai.nilai
-FROM siswa
-LEFT JOIN nilai ON siswa.id_siswa = nilai.id_siswa
-UNION
-SELECT siswa.nama, siswa.kelas, nilai.mata_pelajaran, nilai.nilai
-FROM siswa
-RIGHT JOIN nilai ON siswa.id_siswa = nilai.id_siswa;
-```
-
 ---
 
-## **6️⃣ CROSS JOIN – Menghasilkan Semua Kombinasi Data dari Kedua Tabel**
+## **5️⃣ CROSS JOIN – Menghasilkan Semua Kombinasi Data dari Kedua Tabel**
 
 CROSS JOIN menghubungkan **setiap baris di tabel pertama** dengan **setiap baris di tabel kedua**.
 
@@ -134,7 +112,7 @@ CROSS JOIN nilai;
 
 ---
 
-## **7️⃣ SELF JOIN – Menghubungkan Tabel dengan Dirinya Sendiri**
+## **6️⃣ SELF JOIN – Menghubungkan Tabel dengan Dirinya Sendiri**
 
 Kadang kita ingin membandingkan data dalam **tabel yang sama**.
 
@@ -153,11 +131,10 @@ JOIN siswa B ON A.kelas = B.kelas AND A.id_siswa != B.id_siswa;
 
 ## **Kesimpulan**
 
-🔥 **INNER JOIN** → Hanya data yang cocok.
-🔥 **LEFT JOIN** → Semua dari kiri + yang cocok di kanan.
-🔥 **RIGHT JOIN** → Semua dari kanan + yang cocok di kiri.
-🔥 **FULL JOIN** → Semua data dari kedua tabel.
-🔥 **CROSS JOIN** → Semua kombinasi data.
+🔥 **INNER JOIN** → Hanya data yang cocok. <br>
+🔥 **LEFT JOIN** → Semua dari kiri + yang cocok di kanan.<br>
+🔥 **RIGHT JOIN** → Semua dari kanan + yang cocok di kiri.<br>
+🔥 **CROSS JOIN** → Semua kombinasi data.<br>
 🔥 **SELF JOIN** → Menghubungkan tabel dengan dirinya sendiri.
 
 📌 **Singkatnya:**
