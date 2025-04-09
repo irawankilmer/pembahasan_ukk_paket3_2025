@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `detailpenjualan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `detailpenjualan` (
-  `DetailID` int(11) NOT NULL,
+  `DetailID` int(11) NOT NULL AUTO_INCREMENT,
   `PenjualanID` int(11) DEFAULT NULL,
   `ProdukID` int(11) DEFAULT NULL,
   `JumlahProduk` int(11) DEFAULT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `detailpenjualan` (
   KEY `ProdukID` (`ProdukID`),
   CONSTRAINT `detailpenjualan_ibfk_1` FOREIGN KEY (`PenjualanID`) REFERENCES `penjualan` (`PenjualanID`),
   CONSTRAINT `detailpenjualan_ibfk_2` FOREIGN KEY (`ProdukID`) REFERENCES `produk` (`ProdukID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,12 +54,12 @@ DROP TABLE IF EXISTS `pelanggan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pelanggan` (
-  `PelangganID` int(11) NOT NULL,
+  `PelangganID` int(11) NOT NULL AUTO_INCREMENT,
   `NamaPelanggan` varchar(255) DEFAULT NULL,
   `Alamat` text DEFAULT NULL,
   `NomorTelepon` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`PelangganID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,14 +80,14 @@ DROP TABLE IF EXISTS `penjualan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `penjualan` (
-  `PenjualanID` int(11) NOT NULL,
+  `PenjualanID` int(11) NOT NULL AUTO_INCREMENT,
   `TanggalPenjualan` date DEFAULT NULL,
   `TotalHarga` decimal(10,2) DEFAULT NULL,
   `PelangganID` int(11) DEFAULT NULL,
   PRIMARY KEY (`PenjualanID`),
   KEY `PelangganID` (`PelangganID`),
   CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`PelangganID`) REFERENCES `pelanggan` (`PelangganID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,12 +108,12 @@ DROP TABLE IF EXISTS `produk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `produk` (
-  `ProdukID` int(11) NOT NULL,
+  `ProdukID` int(11) NOT NULL AUTO_INCREMENT,
   `NamaProduk` varchar(255) DEFAULT NULL,
   `Harga` decimal(10,2) DEFAULT NULL,
   `Stok` int(11) DEFAULT NULL,
   PRIMARY KEY (`ProdukID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-08  3:39:42
+-- Dump completed on 2025-04-09 20:41:46
