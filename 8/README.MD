@@ -14,42 +14,109 @@ Mari kita bahas satu per satu! 🚀
 
 Stored Procedure adalah **blok kode SQL** yang bisa **disimpan** di dalam database dan **dipanggil kapan saja**. Ibaratnya seperti **resep masakan** yang bisa digunakan berkali-kali tanpa harus menulis ulang dari nol. 🍽️
 
-### **➤ Cara Membuat Stored Procedure**
-Misalkan kita ingin **menampilkan semua siswa dalam suatu kelas**:
+---
+
+### 🔧 Cara Membuat Stored Procedure
+
+Contoh: Menampilkan semua siswa dalam suatu kelas.
+
 ```sql
-DELIMITER $$
+DELIMITER //
+
 CREATE PROCEDURE GetSiswaByKelas(IN kelas_param VARCHAR(10))
 BEGIN
     SELECT * FROM siswa WHERE kelas = kelas_param;
-END $$
+END //
+
 DELIMITER ;
 ```
-📌 **Penjelasan:**
-- `IN kelas_param VARCHAR(10)` → Parameter input untuk menentukan kelas.
-- `SELECT * FROM siswa WHERE kelas = kelas_param;` → Query untuk menampilkan siswa berdasarkan kelas.
 
-### **➤ Cara Memanggil Stored Procedure**
-Sekarang, kita panggil stored procedure ini:
+📌 Penjelasan:
+- `IN kelas_param VARCHAR(10)` → Parameter input untuk menentukan kelas.
+- `SELECT * FROM siswa WHERE kelas = kelas_param;` → Menampilkan siswa berdasarkan kelas.
+
+---
+
+### ▶️ Cara Memanggil Stored Procedure
+
 ```sql
 CALL GetSiswaByKelas('12 RPL');
 ```
-📌 Hasilnya akan menampilkan semua siswa di **kelas 12 RPL**.
 
-### **➤ Stored Procedure dengan INSERT**
-Misalnya kita sering menambahkan siswa baru. Daripada menulis ulang query INSERT, kita buat prosedur:
+📌 Menampilkan semua siswa di kelas **12 RPL**.
+
+---
+
+### ✍️ Stored Procedure dengan `INSERT`
+
+Misalnya untuk menambah siswa:
+
 ```sql
-DELIMITER $$
+DELIMITER //
+
 CREATE PROCEDURE TambahSiswa(IN nama_siswa VARCHAR(255), IN kelas_siswa VARCHAR(10))
 BEGIN
     INSERT INTO siswa (nama, kelas) VALUES (nama_siswa, kelas_siswa);
-END $$
+END //
+
 DELIMITER ;
 ```
-Sekarang, cukup panggil ini untuk menambah siswa:
+
+Panggil dengan:
+
 ```sql
 CALL TambahSiswa('Budi Santoso', '11 TKJ');
 ```
-📌 Lebih cepat dan praktis! 🚀
+
+📌 Praktis dan cepat! 🚀
+
+---
+
+### 🧾 Melihat Stored Procedure yang Sudah Ada
+
+**Daftar procedure di database:**
+
+```sql
+SHOW PROCEDURE STATUS WHERE Db = 'nama_database';
+```
+
+**Lihat isi kode dari satu procedure:**
+
+```sql
+SHOW CREATE PROCEDURE GetSiswaByKelas;
+```
+
+---
+
+### 🗑️ Menghapus Stored Procedure
+
+```sql
+DROP PROCEDURE IF EXISTS GetSiswaByKelas;
+```
+
+📌 Aman dipakai karena tidak error kalau procedurenya belum ada.
+
+---
+
+### ⚠️ Tips Penting
+
+1. **DELIMITER**  
+   Digunakan agar MySQL/MariaDB CLI tidak bingung membaca `;` di dalam `BEGIN ... END`. Misalnya:
+   ```sql
+   DELIMITER //
+   ...
+   END //
+   DELIMITER ;
+   ```
+
+2. **Gunakan nama parameter yang berbeda dari nama kolom**  
+   Salah: `WHERE Stok = Stok`  
+   Benar: `WHERE Stok = stok_param` atau `produk.Stok = Stok`
+
+3. **Parameter Types**  
+   - `IN` → input ke procedure (paling umum)  
+   - `OUT` → output dari procedure  
+   - `INOUT` → input sekaligus output  
 
 ---
 
@@ -60,14 +127,14 @@ CALL TambahSiswa('Budi Santoso', '11 TKJ');
 ### **➤ Cara Membuat Function**
 Misalnya kita ingin **menghitung rata-rata nilai siswa**:
 ```sql
-DELIMITER $$
+DELIMITER //
 CREATE FUNCTION RataRataNilai(kelas_param VARCHAR(10)) RETURNS DECIMAL(5,2)
 DETERMINISTIC
 BEGIN
     DECLARE rata DECIMAL(5,2);
     SELECT AVG(nilai) INTO rata FROM nilai WHERE kelas = kelas_param;
     RETURN rata;
-END $$
+END //
 DELIMITER ;
 ```
 📌 **Penjelasan:**
@@ -84,12 +151,12 @@ SELECT RataRataNilai('12 RPL') AS rata_nilai;
 ### **➤ Function untuk Menghitung Diskon Harga**
 Misalnya kita punya sistem e-commerce dan ingin menghitung harga setelah diskon:
 ```sql
-DELIMITER $$
+DELIMITER //
 CREATE FUNCTION HitungDiskon(harga DECIMAL(10,2), persen_diskon INT) RETURNS DECIMAL(10,2)
 DETERMINISTIC
 BEGIN
     RETURN harga - (harga * persen_diskon / 100);
-END $$
+END //
 DELIMITER ;
 ```
 Sekarang kita bisa menghitung harga setelah diskon:
@@ -117,14 +184,14 @@ CREATE TABLE log_siswa (
 ```
 Sekarang kita buat trigger yang otomatis mencatat siswa yang dihapus:
 ```sql
-DELIMITER $$
+DELIMITER //
 CREATE TRIGGER HapusSiswaLog
 BEFORE DELETE ON siswa
 FOR EACH ROW
 BEGIN
     INSERT INTO log_siswa (id_siswa, nama, kelas)
     VALUES (OLD.id_siswa, OLD.nama, OLD.kelas);
-END $$
+END //
 DELIMITER ;
 ```
 📌 **Penjelasan:**
